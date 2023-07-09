@@ -20,11 +20,25 @@
 
 <h2>Settings</h2>
 
+{$settings.language}
 <button on:click={() => {
-  $settings.colorScheme = $settings.colorScheme === 'dark' ? 'light' : 'dark'
-}}>Toggle Color Scheme</button>
+  settings.updateSetting('language', Math.random())}}>
+  Update Language
+</button>
 
 {$settings.colorScheme}
+<button on:click={() => {
+  settings.toggleColorScheme()}}>
+  Toggle Color Scheme
+</button>
+
+<button on:click={() => {
+  settings.reset()
+}}>Reset Setting</button>
+
+<!-- <button on:click={() => {
+  $settings.colorScheme = $settings.colorScheme === 'dark' ? 'light' : 'dark'
+}}>Toggle Color Scheme</button> -->
 
 <label>
   <input type="radio" bind:group={$settings.colorScheme} name="colorScheme" value="dark"/>
