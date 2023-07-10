@@ -1,5 +1,6 @@
 <script>
   import settings from "../stores/settings";
+  import direction from "../stores/direction";
 
   // import { onDestroy } from "svelte";
   // let colorScheme;
@@ -36,6 +37,7 @@
   settings.reset()
 }}>Reset Setting</button>
 
+
 <!-- <button on:click={() => {
   $settings.colorScheme = $settings.colorScheme === 'dark' ? 'light' : 'dark'
 }}>Toggle Color Scheme</button> -->
@@ -48,3 +50,11 @@
   <input type="radio" bind:group={$settings.colorScheme} name="colorScheme" value="light"/>
   Light
 </label>
+<br />
+
+{$direction}
+
+<select bind:value={$settings.language}>
+  <option value="en">English</option>
+  <option value="ar">Arabic</option>
+</select>
