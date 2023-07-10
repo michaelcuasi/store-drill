@@ -10,7 +10,7 @@
     values: initialValues,
     errors: {},
     showErrors: false,
-  });
+  }); 
 
   // setContext(formKey, { values: initialValues, errors: {} });
   setContext(formKey, formStore);
@@ -26,5 +26,5 @@
     }
   }}
 >
-  <slot />
+  <slot hasErrors={Object.keys($formStore.errors).length > 0}/>
 </form>

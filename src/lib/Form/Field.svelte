@@ -30,7 +30,7 @@
     {name}
     {type}
     placeholder={label}
-    value={$formStore.values[name] || ''}
+    value={$formStore.values[name] || ''}  
     on:input={(e) => {
       isDirty = true;
       const value = e.currentTarget.value;
@@ -42,6 +42,10 @@
       $formStore.values[name] = value;
     }}
   />
+  
+  <!-- {#if $formStore.errors[name] && $formStore.showErrors}
+    <p class="error">{$formStore.errors[name]}</p>
+  {/if} -->
   {#if $formStore.errors[name] && (isDirty || $formStore.showErrors)}
     <p class="error">{$formStore.errors[name]}</p>
   {/if}

@@ -7,7 +7,8 @@
   on:submit={(event) => {
     console.log(event.detail);
   }}
-  initialValues={{ username: 'Test', email: 'test@test.com' }}
+  initialValues={{username: 'cuasicreate', email: 'cuasicreate@gmail.com', company: 'snaa8'}}
+  let:hasErrors
 >
   <Field
     label="Username"
@@ -37,5 +38,5 @@
     type="password"
     validate={validationRequiredField}
   />
-  <button type="submit">Submit</button>
+  <button type="submit" disabled={hasErrors}>Submit</button>
 </Form>
