@@ -6,16 +6,24 @@
   const dispatch = createEventDispatcher();
 
   export let initialValues = {};
-  const form = writable({ values: initialValues, errors: {} });
+  const formStore = writable({
+    values: initialValues,
+    errors: {},
+    showErrors: false,
+  });
 
   // setContext(formKey, { values: initialValues, errors: {} });
-  setContext(formKey, form);
+  setContext(formKey, formStore);
 </script>
 
-<pre> {JSON.stringify($form, null, 2)}</pre>
+<pre> {JSON.stringify($formStore, null, 2)}</pre>
 <form
   on:submit|preventDefault={() => {
-    dispatch('submit', $form.values);
+    if (Object.keys($formStore.errors).length === 0) {
+      dispatch('submit', $formStore.values);
+    } else {
+      $formStore.showErrors = true;
+    }
   }}
 >
   <slot />

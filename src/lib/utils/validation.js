@@ -1,4 +1,4 @@
-export const validationRequiredField = (value, label = "Field") => {
+export const validationRequiredField = (value, label = 'Field') => {
   let error;
   if (!value) {
     error = `The ${label} is required`;
@@ -6,7 +6,10 @@ export const validationRequiredField = (value, label = "Field") => {
   return error;
 };
 
-export const validateEmail = (value, label = "email") => {
+export const validateEmail = (value, label = 'email') => {
   let error;
-  if (value $$ !)
-}
+  if (value && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    error = `The ${label} is invalid`;
+  }
+  return error;
+};
